@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Lognomy</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/plugins/iCheck/custom.css" rel="stylesheet">
+    <link href="css/plugins/datapicker/datepicker3.css" rel="stylesheet">
+    <link href="css/plugins/clockpicker/clockpicker.css" rel="stylesheet">
+    <script src="js/jquery-2.1.1.js"></script>
+    <script type="text/javascript" src="js/content-loader.js"></script>
+    <script type="text/javascript" src="util/resource.js"></script>
+    <script type="text/javascript" src="util/service.js"></script>
+    <script type="text/javascript">
+        if(!localStorage.getItem('lognomy')){
+          window.location.replace("page/login.html");
+        }
+    </script>
+    <script type="text/javascript" src="controllers/controllers.js"></script>
+</head>
+
+<body class="md-skin fixed-sidebar fixed-nav ng-scope"  data-ng-app="elasticQueryApp">
+
+    <div id="wrapper">
+
+        <nav class="navbar-default navbar-static-side" role="navigation" id="sidebar-box"></nav>
+
+        <div id="page-wrapper" class="gray-bg">
+        
+            <div class="row border-bottom" id="header-box"></div>
+
+            <div class="row wrapper border-bottom white-bg page-heading">
+                <div class="col-lg-10"><br>
+                    <ol class="breadcrumb" id="currentpathDisplay"></ol>
+                </div>
+            </div>
+
+            <div class="wrapper wrapper-content animated" id="bodyContent"></div>
+
+            <div data-ng-controller="BasicController as elasticQuery" class="ng-scope wrapper wrapper-content animated" id="bodyContentQueyBuilder">
+              <div class="container">
+               <div class="row">
+                 <div class="col-md-7">
+                    <div class="row">
+                        <div class="col-md-7">
+                           <label>Logs Type</label>
+                           <select class="form-control m-b" name="queryFor">
+                            <option>apache</option><option>tomcate</option><option>mysql</option>
+                            <option>oracle</option>
+                          </select>
+                        </div>
+                        <div class="col-md-3" ng-if="setFieldsStatus">
+                          <button type="button" class="btn btn-primary pull-right" log-action="saveQuery">&nbsp;&nbsp;Save Query&nbsp;&nbsp;</button>
+                        </div>
+                    <br>
+                    </div>
+                    <div class="row">
+                       <div class="col-md-11">
+                        <label>Description</label>
+                        <textarea type="text" class="input-sm form-control" name="description" placeholder="query description"></textarea>
+                       </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                      <div class="col-md-11">
+                        <h3>Filters</h3>
+                        <div data-elastic-builder="elasticQuery.data" class="ng-isolate-scope">
+                          <div class="elastic-builder">
+                            <div class="filter-panels">
+                              <div class="list-group form-inline">
+                                <div class="list-group-item actions">
+                                  <a class="btn btn-xs btn-primary" title="Add Rule"
+                                     data-ng-click="addRule()">
+                                   <i class="fa fa-plus"></i>
+                                  </a>
+                                  <a class="btn btn-xs btn-primary" title="Add Group"
+                                    data-ng-click="addGroup()">
+                                    <i class="fa fa-list"></i>
+                                  </a>
+                                </div>
+                              </div>
+                             </div>
+                            </div>
+                          </div>
+                      </div>
+                    </div>
+                 </div>
+                  <!-- <div class="col-md-3">
+                    <h3>Query</h3>
+                    <pre data-ng-bind="elasticQuery.showQuery()" class="ng-binding"></pre>
+                  </div> -->
+                  <div class="col-lg-3">
+                    <div class="ibox float-e-margins" queryList>
+                      <div class="ibox-title">
+                          <h5>Query</h5>
+                          <div class="ibox-tools">
+                            <span class="label label-warning-light pull-right" queryListCounter></span>
+                          </div>
+                      </div>
+                      <div class="ibox-content">
+                          <div>
+                              <div class="feed-activity-list" queryListBox></div>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="footer" id="footer-box"></div>
+        </div>
+</div>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/plugins/iCheck/icheck.min.js"></script>
+<script src="js/plugins/peity/jquery.peity.min.js"></script>
+<script src="js/plugins/datapicker/bootstrap-datepicker.js"></script>
+<script src="js/plugins/clockpicker/clockpicker.js"></script>
+<script type="text/javascript">
+    
+
+load.ts('#sidebar-box','view/sidebar.html',function(){
+load.sidebar('#sidebar-box ul#side-menu',resource.menuItems);
+load.ts('#footer-box','view/footer.html');
+load.ts('#header-box','view/header.html',function(){
+    load.js('js/plugins/metisMenu/jquery.metisMenu.js',function(){
+        load.js('js/plugins/slimscroll/jquery.slimscroll.min.js',function(){
+        load.js('js/inspinia.js',function(){
+           load.js('js/plugins/pace/pace.min.js');
+           load.js('js/plugins/sweetalert/sweetalert.min.js');
+        });
+        });
+    });
+    $(window).on('popstate', function(e){
+        load.changed();
+    });
+    load.changed();
+});
+});
+</script>
+
+<!-- highcharts -->
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/data.js"></script>
+<script src="https://code.highcharts.com/highcharts-3d.js"></script>
+
+<script src="js/plugins/jvectormap/jquery-jvectormap-2.0.2.min.js"></script>
+<script src="js/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+
+<script src="js/plugins/angular-query-builder/angular.min.js"></script>
+<script src="js/plugins/angular-query-builder/ui-bootstrap-tpls.min.js"></script>
+<script src="js/plugins/angular-query-builder/angular-recursion.min.js"></script>
+<script src="js/plugins/angular-query-builder/angular-elastic-builder.min.js"></script>
+<script src="js/plugins/angular-query-builder/elasticQueryApp.js"></script>
+
+
+
+</body>
+
+</html>
