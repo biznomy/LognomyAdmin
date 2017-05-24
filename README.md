@@ -25,9 +25,9 @@ LognomyAdmin supported Elasticsearch 5.x.x LognomyAdmin provide both authenticat
 + Install X-Pack plugin in elasticsearch
 + Install Logstash
   <pre>
-    Start logstash with config file "./storage/logstash-apache.conf"
+     Start logstash with config file "./storage/logstash-apache.conf"
      example : ~/logstash/bin/logstash -f ./storage/logstash-apache.conf
-     Note : update path value in logstash-apache.conf file. apache-logs.log file contain apache logs around 10000. 
+     <b>Note<b> : Update path value in logstash-apache.conf file. apache-logs.log file contain apache logs around 10000. 
      <code>
        input {
           file {
@@ -36,7 +36,7 @@ LognomyAdmin supported Elasticsearch 5.x.x LognomyAdmin provide both authenticat
         }
      </code>
   </pre>
-+ Livetail Logs
++ Now Open http://localhost/LognomyAdmin/index.html
 
  &nbsp; &nbsp; <img src="./images/login.png" width="400" /> 
  
