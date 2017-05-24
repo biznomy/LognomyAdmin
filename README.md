@@ -11,7 +11,7 @@ LognomyAdmin supported Elasticsearch 5.x.x LognomyAdmin provide both authenticat
 + Delete and share logs
 + Alarms Manage via Watcher
 
- &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; <img src="./images/login.png" width="400" /> 
+ &nbsp; &nbsp; <img src="./images/login.png" width="400" /> 
  
  &nbsp; &nbsp; <img src="./images/admin-dashboard.png" width="400" />&nbsp; &nbsp; <img src="./images/admin-users.png" width="400" />
 
