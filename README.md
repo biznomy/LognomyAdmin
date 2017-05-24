@@ -26,8 +26,8 @@ LognomyAdmin supported Elasticsearch 5.x.x LognomyAdmin provide both authenticat
 + Install Logstash
   <pre>
      Start logstash with config file "./storage/logstash-apache.conf"
-     example : ~/logstash/bin/logstash -f ./storage/logstash-apache.conf
-     <b>Note<b> : Update path value in logstash-apache.conf file. apache-logs.log file contain apache logs around 10000. 
+     <b>Example</b> : ~/logstash/bin/logstash -f ./storage/logstash-apache.conf
+     <b>Note</b> : Update path value in logstash-apache.conf file. apache-logs.log file contain apache logs around 10000. 
      <code>
        input {
           file {
