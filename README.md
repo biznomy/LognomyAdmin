@@ -11,6 +11,15 @@ LognomyAdmin supported Elasticsearch 5.x.x LognomyAdmin provide both authenticat
 + Delete and share logs
 + Alarms Manage via Watcher
 
+## Basic Usage
++ Install elasticsearch.
+  <pre>
+    <code>$ python apache-log-gen.py </code>
+  </pre>
++ Admin Manage Users and Roles  
++ Querybuilder for Elasticsearch
++ Livetail Logs
+
  &nbsp; &nbsp; <img src="./images/login.png" width="400" /> 
  
  &nbsp; &nbsp; <img src="./images/admin-dashboard.png" width="400" />&nbsp; &nbsp; <img src="./images/admin-users.png" width="400" />
