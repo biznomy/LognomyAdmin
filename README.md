@@ -12,13 +12,31 @@ LognomyAdmin supported Elasticsearch 5.x.x LognomyAdmin provide both authenticat
 + Alarms Manage via Watcher
 
 ## Basic Usage
-+ Install elasticsearch.
++ Install Elasticsearch.
++ Edit elasticsearch.yml for  Requesting cross-origin - "permissions" 
   <pre>
-    <code>$ python apache-log-gen.py </code>
+    <code> 
+      http.cors.allow-origin: /http?:\/\/localhost(:[0-9]+)?/
+      http.cors.enabled: true
+      http.cors.allow-credentials: true
+      http.cors.allow-headers: "X-Requested-With, Content-Type, Content-Length, Authorization"
+    </code>
   </pre>
-+ Admin Manage Users and Roles  
-+ Querybuilder for Elasticsearch
-+ Livetail Logs
++ Install X-Pack plugin in elasticsearch
++ Install Logstash
+  <pre>
+     Start logstash with config file "./storage/logstash-apache.conf"
+     <b>Example</b> : ~/logstash/bin/logstash -f ./storage/logstash-apache.conf
+     <b>Note</b> : Update path value in logstash-apache.conf file. apache-logs.log file contain apache logs around 10000. 
+     <code>
+       input {
+          file {
+            path => "~/LognomyAdmin/storage/apache-logs.log"
+          }
+        }
+     </code>
+  </pre>
++ Now Open http://localhost/LognomyAdmin/index.html
 
  &nbsp; &nbsp; <img src="./images/login.png" width="400" /> 
  
