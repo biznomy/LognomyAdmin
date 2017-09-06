@@ -70,7 +70,6 @@ var resource = {
       {field:"bytes",type:'number'},
       {field:"response",type:'number'},
       {field:"geoip.country_name",type:'term'},
-      {field:"geoip.real_region_name",type:'term'},
       {field:"message",type:'term'}
     ],
     tomcate:[],

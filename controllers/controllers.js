@@ -233,7 +233,7 @@ var controller = {
           if(num < charts.length){
             settingBox = $(charts[num]).find('[chartSetting]');
             d[num].setting(settingBox);
-            controller.production.service('logstash*',JSON.parse(d[num].query()),function(r){
+            controller.production.service('lognomy-log*',JSON.parse(d[num].query()),function(r){
               if(!r.aggregations){return '';};
               d[num].manageData(r,num,d,function(){
                 if(!d[num].hasOwnProperty('type')  && d[num].type != 'vectorMap'){
@@ -322,7 +322,7 @@ var controller = {
               $(hdr).append('<th class="'+cls+'">'+fieldN+'</th>');
 		      }
 		      $(hdr).append('<th>Action</th>');
-           	  controller.production.service('logstash-apache2-*',self.query,function(r){
+           	  controller.production.service('lognomy-log*',self.query,function(r){
                     var d = r.hits.hits;
                     for(var i = 0; i < d.length; i++) {
                        var _src = d[i]['_source'],

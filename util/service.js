@@ -1,5 +1,6 @@
 var service = {
-   fixedUrl:'http://localhost:9200/',
+   //fixedUrl:'http://localhost:9200/',
+   fixedUrl:'http://54.193.87.164:1990/',
    tempInfo:{},
    btoa:null,
    getQry:function(u,m,success, error){
@@ -60,15 +61,15 @@ var service = {
    },
    saveQuery:function(data, success){
       data['createdBy']= service.tempInfo.username;
-      var u = 'lognomy/query';
+      var u = 'lognomy-data/query';
       service.post(u,data,success, function(t){console.log(t+' error');});
    },
    getQueries:function(data,success){
-      var u = 'lognomy/_search';
+      var u = 'lognomy-data/_search';
       service.post(u,data,success, function(t){console.log(t+' error');});
    },
    deleteQuery:function(id,success){
-      var u = 'lognomy/query/'+id;
+      var u = 'lognomy-data/query/'+id;
       service.delete(u,'',success, function(t){console.log(t+' error');});
    },
    kibanaLogin:function(k,v,success, error){
